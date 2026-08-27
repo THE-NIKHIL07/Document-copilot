@@ -2,16 +2,14 @@
 
 > **Institutional-Grade Multi-Company Financial Filing Assistant with Grounded Source Passages & Zero Hallucination.**
 
-[![Live Frontend](https://img.shields.io/badge/Live%20Demo-Vercel-black?logo=vercel)](https://document-copilot-07.vercel.app)
-[![Live Backend API](https://img.shields.io/badge/API-Render-46E3B7?logo=render)](https://document-copilot-kv92.onrender.com)
+[![Live Web Application](https://img.shields.io/badge/Live%20App-Vercel-black?logo=vercel)](https://document-copilot-07.vercel.app)
 [![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/THE-NIKHIL07/Document-copilot)
 
 ---
 
-## 🚀 Live Deployments
+## 🚀 Live Demo
 
 - **Web Application:** [https://document-copilot-07.vercel.app](https://document-copilot-07.vercel.app)
-- **FastAPI Backend:** [https://document-copilot-kv92.onrender.com](https://document-copilot-kv92.onrender.com)
 - **Database & Auth:** Supabase Cloud (PostgreSQL + `pgvector`)
 
 ---
