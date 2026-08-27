@@ -1,4 +1,4 @@
-﻿import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Outlet, useNavigate, useLocation } from 'react-router-dom'
 import { Menu, Plus } from 'lucide-react'
 
@@ -81,7 +81,7 @@ export function ChatPage() {
   }
 
   return (
-    <div className="flex h-screen overflow-hidden bg-background">
+    <div className="flex h-screen h-[100dvh] overflow-hidden bg-background">
       {/* Desktop Sidebar (hidden on mobile, visible md+) */}
       <div className="hidden md:flex md:w-64 md:shrink-0">
         <ThreadSidebar
@@ -133,9 +133,9 @@ export function ChatPage() {
       )}
 
       {/* Main Content Area */}
-      <main className="flex min-h-0 min-w-0 flex-1 flex-col">
-        {/* Mobile Top Header Bar */}
-        <header className="flex h-12 items-center justify-between border-b px-3 bg-background md:hidden">
+      <main className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden">
+        {/* Sticky Mobile Top Header Bar */}
+        <header className="sticky top-0 z-30 flex h-12 shrink-0 items-center justify-between border-b bg-background/95 px-3 backdrop-blur-md md:hidden">
           <button
             type="button"
             onClick={() => setMobileMenuOpen(true)}
