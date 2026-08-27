@@ -22,6 +22,7 @@ class Settings(BaseSettings):
     database_url: str
     openai_api_key: str = ""
     openai_embedding_model: str = "text-embedding-3-small"
+    openai_embedding_dimensions: int = 1536
     groq_api_key: str = ""
     groq_model: str = "qwen/qwen3.8-27b"
     allowed_origins: Annotated[list[str], NoDecode] = ["*"]
