@@ -1,5 +1,5 @@
 ﻿import { NavLink } from 'react-router-dom'
-import { Plus, Trash2, MessageSquare } from 'lucide-react'
+import { Plus, Trash2, MessageSquare, X } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { ScrollArea } from '@/components/ui/scroll-area'
@@ -14,6 +14,7 @@ interface ThreadSidebarProps {
   onNewChat: () => void
   onDeleteThread: (threadId: string) => void
   onSignOut: () => void
+  onCloseMobile?: () => void
 }
 
 export function ThreadSidebar({
@@ -25,17 +26,35 @@ export function ThreadSidebar({
   onNewChat,
   onDeleteThread,
   onSignOut,
+  onCloseMobile,
 }: ThreadSidebarProps) {
   return (
-    <aside className="flex w-64 shrink-0 flex-col border-r bg-sidebar text-sidebar-foreground">
+    <aside className="flex h-full w-full flex-col border-r bg-sidebar text-sidebar-foreground">
       <div className="flex flex-col gap-3 border-b p-3">
         <div className="flex items-center justify-between gap-2">
           <div className="min-w-0">
             <p className="truncate text-sm font-semibold">Document Copilot</p>
             <p className="truncate text-xs text-muted-foreground">{userEmail}</p>
           </div>
+          {onCloseMobile && (
+            <button
+              type="button"
+              onClick={onCloseMobile}
+              className="rounded p-1 text-muted-foreground hover:bg-sidebar-accent md:hidden"
+              aria-label="Close sidebar"
+            >
+              <X className="h-5 w-5" />
+            </button>
+          )}
         </div>
-        <Button onClick={onNewChat} disabled={creating} className="w-full">
+        <Button
+          onClick={() => {
+            onNewChat()
+            onCloseMobile?.()
+          }}
+          disabled={creating}
+          className="w-full"
+        >
           <Plus className="h-4 w-4 mr-1.5" />
           New chat
         </Button>
@@ -62,6 +81,7 @@ export function ThreadSidebar({
             >
               <NavLink
                 to={`/chat/${thread.id}`}
+                onClick={onCloseMobile}
                 className={({ isActive }) =>
                   [
                     'flex min-w-0 flex-1 items-center gap-2 rounded-md px-2.5 py-1.5 text-sm transition',
