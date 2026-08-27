@@ -38,7 +38,7 @@ class DocumentChunk(Base):
     token_count: Mapped[int] = mapped_column(Integer, nullable=False)
     metadata_: Mapped[dict] = mapped_column("metadata", JSONB, nullable=False, default=dict)
     embedding: Mapped[list[float]] = mapped_column(
-        Vector(settings.openai_embedding_dimensions), nullable=False
+        Vector(1536), nullable=False
     )
     search_vector: Mapped[str] = mapped_column(
         TSVECTOR,
