@@ -10,6 +10,7 @@ cp .env.example .env   # fill in Supabase + OpenAI values
 uv sync
 ```
 
+
 Config lives in `app/config.py` and reads `backend/.env`. Use the **uv venv** (`.venv/bin/python`), not system Python.
 
 In Cursor: select interpreter `backend/.venv/bin/python`.
